@@ -1,0 +1,37 @@
+{
+  "name": "famous-sizeconstraint",
+  "version": "0.0.1",
+  "homepage": "https://github.com/IjzerenHein/sizeconstraint",
+  "author": {
+    "name": "Hein Rutjes <hrutjes@gmail.com>"
+  },
+  "description": "SizeConstraint makes it possible to set the maximum-size, minimum-size, aspect-ratio and size-scale for renderables",
+  "keywords": [
+    "famo.us",
+    "famous",
+    "size",
+    "sizeConstraint",
+    "aspectratio",
+    "min",
+    "max"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/IjzerenHein/famous-sizeconstraint/blob/master/LICENSE"
+    }
+  ],
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/IjzerenHein/famous-sizeconstraint/issues"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-eslint": "latest",
+    "grunt-jscs": "latest",
+    "grunt-jsdoc-to-markdown": "latest"
+  }
+}

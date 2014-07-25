@@ -1,0 +1,23 @@
+html {
+  background: #fff;
+}
+
+html, div {
+    font-family: Helvetica;
+}
+
+.backfaceVisibility {
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+
+.back {
+    background-color: #888888;
+}
+
+.photo-frame {
+    background-color: white;
+    -webkit-box-shadow: 0px 4px 10px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 4px 10px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 4px 10px 0px rgba(50, 50, 50, 0.75);
+}
