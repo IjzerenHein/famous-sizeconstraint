@@ -52,7 +52,7 @@ define(function(require, exports, module) {
     });
     var content = new Surface({
         classes: ['content'],
-        content: 'max-width: 800px'
+        content: 'max-width: 600px'
     });
     mainContext.add(back);
     mainContext.add(modifier).add(sizeConstraint);
