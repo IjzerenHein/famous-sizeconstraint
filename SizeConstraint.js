@@ -154,8 +154,8 @@ define(function(require, exports, module) {
 
         // apply scale
         if (scale) {
-            size[0] = size[0] * (scale[0] !== undefined) ? scale[0] : 1;
-            size[1] = size[1] * (scale[1] !== undefined) ? scale[1] : 1;
+            size[0] = size[0] * ((scale[0] !== undefined) ? scale[0] : 1);
+            size[1] = size[1] * ((scale[1] !== undefined) ? scale[1] : 1);
         }
 
         // apply max
