@@ -14,6 +14,7 @@ SizeConstraint makes it possible to set the following constraints on renderables
 
 - [Site demo](https://rawgit.com/IjzerenHein/famous-sizeconstraint/master/examples/site/index.html) *(demonstrates maximum-width to create a site-layout with borders)*
 - [Photo demo](https://rawgit.com/IjzerenHein/famous-sizeconstraint/master/examples/photo/index.html) *(demonstrates aspect-ratio)*
+- [Scale demo](https://rawgit.com/IjzerenHein/famous-sizeconstraint/master/examples/scale/index.html) *(demonstrates scaling)*
 
 ## Getting started
 
