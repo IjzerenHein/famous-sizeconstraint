@@ -1,6 +1,6 @@
 {
   "name": "famous-sizeconstraint",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/IjzerenHein/sizeconstraint",
   "author": {
     "name": "Hein Rutjes <hrutjes@gmail.com>"
@@ -14,7 +14,8 @@
     "aspectratio",
     "min",
     "max",
-    "scale"
+    "scale",
+    "padding"
   ],
   "licenses": [
     {

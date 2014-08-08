@@ -36,7 +36,7 @@ require.config({
 });
 ```
 
-**Create a surface with with a width 20px less than its parent:**
+**Create a surface with a width 20px less than its parent:**
 
 ```javascript
 var SizeConstraint = require('famous-sizeconstraint');

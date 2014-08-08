@@ -1,11 +1,11 @@
 {
   "name": "famous-sizeconstraint",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/IjzerenHein/famous-sizeconstraint",
   "authors": [
     "Hein Rutjes <hrutjes@gmail.com>"
   ],
-  "description": "SizeConstraint makes it possible to set the maximum-size, minimum-size, aspect-ratio and size-scale for renderables",
+  "description": "SizeConstraint makes it possible to set the scale, padding, max-size, min-size and aspect-ratio for renderables",
   "keywords": [
     "famo.us",
     "famous",
@@ -14,7 +14,8 @@
     "aspectratio",
     "min",
     "max",
-    "scale"
+    "scale",
+    "padding"
   ],
   "license": "MIT",
   "ignore": [
