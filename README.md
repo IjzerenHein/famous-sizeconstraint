@@ -5,16 +5,18 @@ SizeConstraint makes it possible to set the following constraints on renderables
 
 |Option|Description|
 |--------|-----------|
-|```scale```|Scales the size proportionally to the parent-size.
-|```min```|Sets the minimum-size.|
-|```max```|Sets the maximum-size.|
-|```ratio```|Aspect ratio to enforce.|
+|```scale```|Scales the size proportionally to the parent-size (factor).|
+|```padding```|Inner width/height padding (pixels).|
+|```max```|Sets the maximum-size (pixels).|
+|```min```|Sets the minimum-size (pixels).|
+|```ratio```|Aspect ratio to enforce (factor).|
 
 ### Demos
 
 - [Site demo](https://rawgit.com/IjzerenHein/famous-sizeconstraint/master/examples/site/index.html) *(demonstrates maximum-width to create a site-layout with borders)*
 - [Photo demo](https://rawgit.com/IjzerenHein/famous-sizeconstraint/master/examples/photo/index.html) *(demonstrates aspect-ratio)*
 - [Scale demo](https://rawgit.com/IjzerenHein/famous-sizeconstraint/master/examples/scale/index.html) *(demonstrates scaling)*
+- [Padding demo](https://rawgit.com/IjzerenHein/famous-sizeconstraint/master/examples/padding/index.html) *(demonstrates padding)*
 
 ## Getting started
 
@@ -34,14 +36,13 @@ require.config({
 });
 ```
 
-**Create a surface with a maximum-width of 400px, and a minimum-height of 100px:**
+**Create a surface with with a width 20px less than its parent:**
 
 ```javascript
 var SizeConstraint = require('famous-sizeconstraint');
 
 var sizeConstraint = new SizeConstraint({
-    max: [400, undefined],
-    min: [undefined, 100]
+	padding: [20, undefined]
 });
 this.add(sizeConstraint);
 var surface = new Surface({ properties: { backgroundColor: 'blue' }});
@@ -54,7 +55,19 @@ sizeConstraint.add(surface);
 
 ```javascript
 var sizeConstraint = new SizeConstraint({
-    scale: [0.5, 0.5]
+	scale: [0.5, 0.5]
+});
+this.add(sizeConstraint);
+var surface = new Surface({ properties: { backgroundColor: 'blue' }});
+sizeConstraint.add(surface);
+```
+
+**Create a surface with a maximum-width of 400px, and a minimum-height of 100px:**
+
+```javascript
+var sizeConstraint = new SizeConstraint({
+    max: [400, undefined],
+    min: [undefined, 100]
 });
 this.add(sizeConstraint);
 var surface = new Surface({ properties: { backgroundColor: 'blue' }});
@@ -75,6 +88,13 @@ sizeConstraint.add(surface);
 ## Documentation
 
 * [API Reference](docs/SizeConstraint.md)
+
+### Using multiple constraints
+
+All of the constraints can be combined. When using multiple constraints, the
+following execution order is in effect:
+
+```scale``` -> ```padding``` -> ```max``` -> ```min``` -> ```aspect-ratio```
 
 ## Contribute
 

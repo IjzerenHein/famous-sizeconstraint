@@ -31,10 +31,11 @@
  *
  * |Option|Description|
  * |--------|-----------|
- * |```scale```|Scales the size proportionally to the parent-size.
- * |```min```|Sets the minimum-size.|
- * |```max```|Sets the maximum-size.|
- * |```ratio```|Aspect ratio to enforce.|
+ * |```scale```|Scales the size proportionally to the parent-size (factor).|
+ * |```padding```|Inner width/height padding (pixels).|
+ * |```max```|Sets the maximum-size (pixels).|
+ * |```min```|Sets the minimum-size (pixels).|
+ * |```ratio```|Aspect ratio to enforce (factor).|
  * |```origin```|Origin to use (default: [0.5, 0.5]).|
  * |```align```|Align to use (default: [0.5, 0.5]).|
  *
@@ -52,9 +53,10 @@ define(function(require, exports, module) {
      * Supported constraints
      */
     var Constraints = {
-        min: 'min',
-        max: 'max',
         scale: 'scale',
+        padding: 'padding',
+        max: 'max',
+        min: 'min',
         ratio: 'ratio'
     };
 
@@ -75,8 +77,9 @@ define(function(require, exports, module) {
      * @class
      * @param {Object} options Options.
      * @param {Array.Number|Function} [options.scale] Scale
-     * @param {Array.Number|Function} [options.min] Minimum-size
+     * @param {Array.Number|Function} [options.padding] Width/height padding
      * @param {Array.Number|Function} [options.max] Maximum-size
+     * @param {Array.Number|Function} [options.min] Minimum-size
      * @param {Array.Number|Function} [options.ratio] Aspect-ratio
      * @param {Array.Number|Function} [options.origin] Origin to use (default: [0.5, 0.5])
      * @param {Array.Number|Function} [options.align] Align to use (default: [0.5, 0.5])
@@ -100,8 +103,9 @@ define(function(require, exports, module) {
         align: [0.5, 0.5],
         origin: [0.5, 0.5],
         scale: null,
-        min: null,
+        padding: null,
         max: null,
+        min: null,
         ratio: null
     };
 
@@ -142,10 +146,11 @@ define(function(require, exports, module) {
 
         // Get options
         var scale = this._constraints.scale.getter ? this._constraints.scale.getter() : this._constraints.scale.value;
+        var padding = this._constraints.padding.getter ? this._constraints.padding.getter() : this._constraints.padding.value;
         var max = this._constraints.max.getter ? this._constraints.max.getter() : this._constraints.max.value;
         var min = this._constraints.min.getter ? this._constraints.min.getter() : this._constraints.min.value;
         var ratio = this._constraints.ratio.getter ? this._constraints.ratio.getter() : this._constraints.ratio.value;
-        if (!scale && !max && !min && !ratio) {
+        if (!scale && !padding && !max && !min && !ratio) {
             return null;
         }
 
@@ -156,6 +161,12 @@ define(function(require, exports, module) {
         if (scale) {
             size[0] = size[0] * ((scale[0] !== undefined) ? scale[0] : 1);
             size[1] = size[1] * ((scale[1] !== undefined) ? scale[1] : 1);
+        }
+
+        // apply scale
+        if (padding) {
+            size[0] = size[0] - ((padding[0] !== undefined) ? padding[0] : 0);
+            size[1] = size[1] - ((padding[1] !== undefined) ? padding[1] : 0);
         }
 
         // apply max
