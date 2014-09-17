@@ -21,9 +21,11 @@ SizeConstraint makes it possible to set the following constraints on renderables
 
 ## Getting started
 
-Install using bower:
+Install using bower or npm:
 
-	bower install famous-sizeconstraint
+    bower install famous-sizeconstraint
+
+    npm install famous-sizeconstraint
 
 If necessary, add to the requirejs paths config:
 

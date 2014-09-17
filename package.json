@@ -1,7 +1,11 @@
 {
   "name": "famous-sizeconstraint",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "https://github.com/IjzerenHein/sizeconstraint",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/IjzerenHein/famous-sizeconstraint.git"
+  },
   "author": {
     "name": "Hein Rutjes <hrutjes@gmail.com>"
   },
@@ -35,5 +39,9 @@
     "grunt-eslint": "latest",
     "grunt-jscs": "latest",
     "grunt-jsdoc-to-markdown": "latest"
-  }
+  },
+  "files": [
+    "SizeConstraint",
+    "LICENSE"
+  ]
 }
