@@ -1,23 +1,7 @@
-/*
- * Copyright (c) 2014 Gloey Apps
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
+/**
+ * This Source Code is licensed under the MIT license. If a copy of the
+ * MIT-license was not distributed with this file, You can obtain one at:
+ * http://opensource.org/licenses/mit-license.html.
  *
  * @author: Hein Rutjes (IjzerenHein)
  * @license MIT
@@ -36,8 +20,7 @@
  * |```max```|Sets the maximum-size (pixels).|
  * |```min```|Sets the minimum-size (pixels).|
  * |```ratio```|Aspect ratio to enforce (factor).|
- * |```origin```|Origin to use (default: [0.5, 0.5]).|
- * |```align```|Align to use (default: [0.5, 0.5]).|
+ * |```size```|Default size to use instead of parent-size (pixels).|
  *
  * @module
  */
@@ -57,7 +40,8 @@ define(function(require, exports, module) {
         padding: 'padding',
         max: 'max',
         min: 'min',
-        ratio: 'ratio'
+        ratio: 'ratio',
+        size: 'size'
     };
 
     /**
@@ -81,8 +65,7 @@ define(function(require, exports, module) {
      * @param {Array.Number|Function} [options.max] Maximum-size
      * @param {Array.Number|Function} [options.min] Minimum-size
      * @param {Array.Number|Function} [options.ratio] Aspect-ratio
-     * @param {Array.Number|Function} [options.origin] Origin to use (default: [0.5, 0.5])
-     * @param {Array.Number|Function} [options.align] Align to use (default: [0.5, 0.5])
+     * @param {Array.Number|Function} [options.size] Default size
      * @alias module:SizeConstraint
      */
     function SizeConstraint(options) {
@@ -100,13 +83,12 @@ define(function(require, exports, module) {
     }
 
     SizeConstraint.DEFAULT_OPTIONS = {
-        align: [0.5, 0.5],
-        origin: [0.5, 0.5],
-        scale: null,
-        padding: null,
-        max: null,
-        min: null,
-        ratio: null
+        scale: undefined,
+        padding: undefined,
+        max: undefined,
+        min: undefined,
+        ratio: undefined,
+        size: undefined
     };
 
     /**
@@ -150,12 +132,19 @@ define(function(require, exports, module) {
         var max = this._constraints.max.getter ? this._constraints.max.getter() : this._constraints.max.value;
         var min = this._constraints.min.getter ? this._constraints.min.getter() : this._constraints.min.value;
         var ratio = this._constraints.ratio.getter ? this._constraints.ratio.getter() : this._constraints.ratio.value;
-        if (!scale && !padding && !max && !min && !ratio) {
+        var fallbackSize = this._constraints.size.getter ? this._constraints.size.getter() : this._constraints.size.value;
+        if (!scale && !padding && !max && !min && !ratio && !fallbackSize) {
             return null;
         }
 
         // init
         var size = [parentSize[0], parentSize[1]];
+
+        // apply fallback-size
+        if (fallbackSize) {
+            size[0] = fallbackSize[0] || size[0];
+            size[1] = fallbackSize[1] || size[1];
+        }
 
         // apply scale
         if (scale) {
@@ -213,8 +202,8 @@ define(function(require, exports, module) {
      */
     SizeConstraint.prototype.commit = function(context) {
         return {
-            align: this.options.align,
-            origin: this.options.origin,
+            align: this.options.align || context.align,
+            origin: this.options.origin || context.origin,
             size: this.calcSize(context.size),
             target: this._node.render()
         };

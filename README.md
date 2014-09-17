@@ -10,6 +10,7 @@ SizeConstraint makes it possible to set the following constraints on renderables
 |```max```|Sets the maximum-size (pixels).|
 |```min```|Sets the minimum-size (pixels).|
 |```ratio```|Aspect ratio to enforce (factor).|
+|```size```|Default size to use instead of the parent size (pixels).|
 
 ### Demos
 
@@ -94,7 +95,7 @@ sizeConstraint.add(surface);
 All of the constraints can be combined. When using multiple constraints, the
 following execution order is in effect:
 
-```scale``` -> ```padding``` -> ```max``` -> ```min``` -> ```aspect-ratio```
+```size``` -> ```scale``` -> ```padding``` -> ```max``` -> ```min``` -> ```aspect-ratio```
 
 ## Contribute
 
