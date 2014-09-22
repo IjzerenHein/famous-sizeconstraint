@@ -41,7 +41,7 @@
     "grunt-jsdoc-to-markdown": "latest"
   },
   "files": [
-    "SizeConstraint",
+    "SizeConstraint.js",
     "LICENSE"
   ]
 }
