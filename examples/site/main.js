@@ -8,9 +8,6 @@
  * @copyright Gloey Apps, 2014
  */
 
-/*jslint browser:true, nomen:true, vars:true, plusplus:true, bitwise: true*/
-/*global define*/
-
 define(function(require, exports, module) {
     'use strict';
 
