@@ -5,10 +5,8 @@
  *
  * @author: Hein Rutjes (IjzerenHein)
  * @license MIT
- * @copyright Gloey Apps, 2014
+ * @copyright Gloey Apps, 2014/2015
  */
-
-/*global define*/
 
 /**
  * SizeConstraint makes it possible to set the following constraints on renderables:

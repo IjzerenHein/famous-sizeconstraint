@@ -4,13 +4,13 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     eslint: {
-      target: ['*.js'],
+      target: ['SizeConstraint.js'],
       options: {
         config: '.eslintrc'
       }
     },
     jscs: {
-        src: ['*.js'],
+        src: ['SizeConstraint.js'],
         options: {
             config: '.jscsrc'
         }

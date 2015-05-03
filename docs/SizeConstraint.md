@@ -1,62 +1,70 @@
 <a name="module_SizeConstraint"></a>
-#SizeConstraint
+## SizeConstraint
 SizeConstraint makes it possible to set the following constraints on renderables:
 
 |Option|Description|
 |--------|-----------|
-|```scale```|Scales the size proportionally to the parent-size.
-|```min```|Sets the minimum-size.|
-|```max```|Sets the maximum-size.|
-|```ratio```|Aspect ratio to enforce.|
-|```origin```|Origin to use (default: [0.5, 0.5]).|
-|```align```|Align to use (default: [0.5, 0.5]).|
+|```scale```|Scales the size proportionally to the parent-size (factor).|
+|```padding```|Inner width/height padding (pixels).|
+|```max```|Sets the maximum-size (pixels).|
+|```min```|Sets the minimum-size (pixels).|
+|```ratio```|Aspect ratio to enforce (factor).|
+|```size```|Default size to use instead of parent-size (pixels).|
 
-<a name="exp_module_SizeConstraint"></a>
-##class: SizeConstraint ⏏
-**Members**
 
-* [class: SizeConstraint ⏏](#exp_module_SizeConstraint)
-  * [new SizeConstraint(options)](#exp_new_module_SizeConstraint)
-  * [sizeConstraint.add()](#module_SizeConstraint#add)
-  * [sizeConstraint.getSize()](#module_SizeConstraint#getSize)
-  * [sizeConstraint.setOptions(options)](#module_SizeConstraint#setOptions)
-  * [sizeConstraint.calcSize(parentSize)](#module_SizeConstraint#calcSize)
+* [SizeConstraint](#module_SizeConstraint)
+  * [SizeConstraint](#exp_module_SizeConstraint--SizeConstraint) ⏏
+    * [new SizeConstraint(options)](#new_module_SizeConstraint--SizeConstraint_new)
+    * [.add()](#module_SizeConstraint--SizeConstraint#add)
+    * [.getSize()](#module_SizeConstraint--SizeConstraint#getSize) ⇒ <code>Array.Number</code>
+    * [.setOptions(options)](#module_SizeConstraint--SizeConstraint#setOptions)
+    * [.calcSize(parentSize)](#module_SizeConstraint--SizeConstraint#calcSize) ⇒ <code>Array.Number</code>
 
-<a name="exp_new_module_SizeConstraint"></a>
-###new SizeConstraint(options)
-**Params**
+<a name="exp_module_SizeConstraint--SizeConstraint"></a>
+### SizeConstraint ⏏
+**Kind**: Exported class  
+<a name="new_module_SizeConstraint--SizeConstraint_new"></a>
+#### new SizeConstraint(options)
 
-- options `Object` - Options.  
-  - \[scale\] `Array.Number` | `function` - Scale  
-  - \[min\] `Array.Number` | `function` - Minimum-size  
-  - \[max\] `Array.Number` | `function` - Maximum-size  
-  - \[ratio\] `Array.Number` | `function` - Aspect-ratio  
-  - \[origin\] `Array.Number` | `function` - Origin to use (default: [0.5, 0.5])  
-  - \[align\] `Array.Number` | `function` - Align to use (default: [0.5, 0.5])  
+| Param | Type | Description |
+| --- | --- | --- |
+| options | <code>Object</code> | Options. |
+| [options.scale] | <code>Array.Number</code> &#124; <code>function</code> | Scale |
+| [options.padding] | <code>Array.Number</code> &#124; <code>function</code> | Width/height padding |
+| [options.max] | <code>Array.Number</code> &#124; <code>function</code> | Maximum-size |
+| [options.min] | <code>Array.Number</code> &#124; <code>function</code> | Minimum-size |
+| [options.ratio] | <code>Array.Number</code> &#124; <code>function</code> | Aspect-ratio |
+| [options.size] | <code>Array.Number</code> &#124; <code>function</code> | Default size |
 
-<a name="module_SizeConstraint#add"></a>
-###sizeConstraint.add()
+<a name="module_SizeConstraint--SizeConstraint#add"></a>
+#### sizeConstraint.add()
 Add a child
 
-<a name="module_SizeConstraint#getSize"></a>
-###sizeConstraint.getSize()
+**Kind**: instance method of <code>[SizeConstraint](#exp_module_SizeConstraint--SizeConstraint)</code>  
+<a name="module_SizeConstraint--SizeConstraint#getSize"></a>
+#### sizeConstraint.getSize() ⇒ <code>Array.Number</code>
 Get the size
 
-**Returns**: `Array.Number` - Size  
-<a name="module_SizeConstraint#setOptions"></a>
-###sizeConstraint.setOptions(options)
+**Kind**: instance method of <code>[SizeConstraint](#exp_module_SizeConstraint--SizeConstraint)</code>  
+**Returns**: <code>Array.Number</code> - Size  
+<a name="module_SizeConstraint--SizeConstraint#setOptions"></a>
+#### sizeConstraint.setOptions(options)
 Patches the SizeConstraint instance's options with the passed-in ones.
 
-**Params**
+**Kind**: instance method of <code>[SizeConstraint](#exp_module_SizeConstraint--SizeConstraint)</code>  
 
-- options `Options` - An object of configurable options for the SizeConstraint instance.  
+| Param | Type | Description |
+| --- | --- | --- |
+| options | <code>Options</code> | An object of configurable options for the SizeConstraint instance. |
 
-<a name="module_SizeConstraint#calcSize"></a>
-###sizeConstraint.calcSize(parentSize)
+<a name="module_SizeConstraint--SizeConstraint#calcSize"></a>
+#### sizeConstraint.calcSize(parentSize) ⇒ <code>Array.Number</code>
 Calculates the modified size based on the parent-size.
 
-**Params**
+**Kind**: instance method of <code>[SizeConstraint](#exp_module_SizeConstraint--SizeConstraint)</code>  
+**Returns**: <code>Array.Number</code> - [width, height]  
 
-- parentSize `Array.Number` - Size of the parent  
+| Param | Type | Description |
+| --- | --- | --- |
+| parentSize | <code>Array.Number</code> | Size of the parent |
 
-**Returns**: `Array.Number` - [width, height]  

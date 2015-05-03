@@ -106,6 +106,6 @@ Feel free to contribute to this project in any way. The easiest way to support t
 ## Contact
 - 	@IjzerenHein
 - 	http://www.gloey.nl
-- 	hrutjes@gmail.com
+- 	hrutjes@gmail.com (for hire)
 
 © 2014 - Hein Rutjes
